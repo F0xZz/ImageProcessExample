@@ -11,7 +11,7 @@ The OpenCV Version:3.4.6
 
 ## Updates!
 
-
+2021-09-06 Add the mulipleThread imageProcess
 
 ## How to Use
 
