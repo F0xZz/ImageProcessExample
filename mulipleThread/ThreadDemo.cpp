@@ -91,13 +91,10 @@ int main(){
     //method get the
     while(i<10){
         std::thread th1(C,img,std::ref(Dst));
-        //method one filter by only one img
 
+        //method one filter by only one img
         th1.join();
 
-
-        //        totaltime=(double)(finish-start)/1000;
-        //        cout<<"\n此程序的运行时间one img为"<<totaltime<<"ms！"<<endl;
         //method one filter by only two pair
         std::thread th2(C,CropImgtop,std::ref(DstTop));
         std::thread th3(C,CropImgdown,std::ref(DstDown));
@@ -111,6 +108,7 @@ int main(){
         time( &rawtime );
 
         info = localtime( &rawtime );
+
         printf("Out begin 4 thread  当前的本地时间和日期：%s", asctime(info));
 
         th2.join();
@@ -121,10 +119,8 @@ int main(){
         time( &rawtime );
 
         info = localtime( &rawtime );
+
         printf("Out end 4 thread  当前的本地时间和日期：%s", asctime(info));
-
-
-
         ++i;
     }
     return 0;
