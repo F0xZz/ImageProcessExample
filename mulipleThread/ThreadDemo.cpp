@@ -6,10 +6,8 @@
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
-#include <time.h>
 using namespace std;
 using namespace cv;
-
 void C(Mat src,Mat &dstOut){
 
     time_t rawtime;
@@ -37,32 +35,21 @@ void C(Mat src,Mat &dstOut){
                 int B = src.at<Vec3b>(i, j)[0];
                 int G = src.at<Vec3b>(i, j)[1];
                 int R = src.at<Vec3b>(i, j)[2];
-                //            std::cout<<R<<std::endl;
+
                 int H = imgHSV.at<Vec3b>(i, j)[0];
                 int S = imgHSV.at<Vec3b>(i, j)[1];
                 int V = imgHSV.at<Vec3b>(i, j)[2];
-
-                //            ((G/(R+255))>0.25)?((G/(R+255))<0.65)?tempDst.at<uchar>(i,j)=255:tempDst.at<uchar>(i,j)=0:tempDst.at<uchar>(i,j)=0;
-                //            ((B/(R+255))>0.05)?((B/(R+255))<0.45)?tempDst.at<uchar>(i,j)=255:tempDst.at<uchar>(i,j)=0:tempDst.at<uchar>(i,j)=0;
-                //            ((B/(G+255))>0.20)?((B/(G+255))<0.60)?tempDst.at<uchar>(i,j)=255:tempDst.at<uchar>(i,j)=0:tempDst.at<uchar>(i,j)=0;
                 if(R>G&&G>B)
                 {
-
-                    //                tempDst.at<uchar>(i,j)=255;
                     if((G/(R+255.0))>0.25 && (G/(R+255.0))<0.65)
                     {
-
                         if((B/(R+255.0))>0.05 && (B/(R+255.0))<0.45)
                         {
-
                             if((B/(G+255.0))>0.20 && (B/(G+255.0))<0.60){
-                                //tempDst.at<uchar>(i,j)=255;
                                 if(H<60&&S>20&&V>100){(S > ((255 - R) * 0.33))?tempDst.at<uchar>(i,j)=255:tempDst.at<uchar>(i,j)=0;}
                             }
                         }
-                        //
-                    }
-                    //            tempDst.at<uchar>(i,j)=255;
+                    } 
                 }
             }
         }
