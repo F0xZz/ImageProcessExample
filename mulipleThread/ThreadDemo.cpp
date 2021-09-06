@@ -21,7 +21,7 @@ void C(Mat src,Mat &dstOut){
 
     int row = src.rows;
     int col = src.cols;
-    //    int channels = src.channels();
+ 
     Mat imgHSV;
     cvtColor(src, imgHSV, COLOR_BGR2HSV);
     Mat dst(row, col, CV_8UC3);
@@ -60,8 +60,6 @@ void C(Mat src,Mat &dstOut){
 
     info = localtime( &rawtime );
     printf("inner function 当前的本地时间和日期：%s", asctime(info));
-    //    tempDst = AfterProcess(tempDst);
-    //    return tempDst;
 }
 int main(){
 
