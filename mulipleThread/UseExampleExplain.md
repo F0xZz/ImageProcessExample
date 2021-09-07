@@ -84,3 +84,16 @@ int main()
 }
 ```
 
+```
+std::thread threads[5];
+for (int i = 0; i < 5; i++) 
+{
+        threads[i] = std::thread(thread_task, i + 1);
+}
+
+    std::cout << "Done spawning threads! Now wait for them to join\n";
+    for (auto& t: threads) {
+        t.join();
+    }
+```
+
