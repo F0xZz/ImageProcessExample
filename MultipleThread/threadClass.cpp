@@ -15,7 +15,7 @@ Mat CustomThread(Mat src,int threadIndex){
 
     //CREATE THE THREAD
     for (int i =0;i<threadIndex;++i){
-        MatThreadProcess[i]=thread(&ThreadUseColorRule,&cfProcess,
+        MatThreadProcess[i]=thread(&colorFilter::ThreadUseColorRule,&cfProcess,
                                    src(initRect),std::ref(dstThreadMat.at(i)));
         initRect = initRect+movePoint;
     }

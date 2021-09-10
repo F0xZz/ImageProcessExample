@@ -15,5 +15,7 @@ The OpenCV Version:3.4.6
 
 2021-09-06 Add the mulipleThread imageProcess
 
+2021-09-10 Add the peroid detect object use for Peroid Warning
+
 ## How to Use
 
