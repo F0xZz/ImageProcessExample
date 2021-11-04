@@ -98,3 +98,28 @@ for (int i = 0; i < 5; i++)
 ```
 
 **其实最关键部分不考虑线程问题，其实最好优化为矩阵运算方式，效率最优。**
+
+关于计时问题，多线程就不能使用单纯的time_t来计算时间
+
+```
+#include <time.h>
+#ifdef _WIN32
+#	include <windows.h>
+#else
+#	include <sys/time.h>
+#endif
+#ifdef _WIN32
+double cpuSecond()
+{
+  struct timeval tp;
+  gettimeofday(&tp,NULL);
+  return((double)tp.tv_sec+(double)tp.tv_usec*1e-6);
+
+}
+double iStart,iElaps;
+iStart=cpuSecond();
+...
+iElaps=cpuSecond()-iStart;
+```
+
+

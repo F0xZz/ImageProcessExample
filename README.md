@@ -17,6 +17,8 @@ The OpenCV Version:3.4.6
 
 2021-09-10 Add the peroid detect object use for Peroid Warning
 
+2021-10-29 Getknow the **spdlog** and **json.hpp** is a powerful headers
+
 ## How to Use
 
 https://face2ai.com/
